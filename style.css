@@ -1,0 +1,21 @@
+/* Paragraph style 1: elegant serif font, warm burgandy color */
+.para-style-1 {
+    font-family: Georgia, 'Times New Roman', serif;
+    color: #b5179e;
+}
+
+/* Paragraph style 3: monospace font, gold color, extra letter spacing */
+
+.para-style-2 {
+    font-family: Verdana, Geneva, sans-serif;
+    color: #1b998b;
+    font-style: italic;
+}
+
+/* Paragraph style 3: monospace font, gold color, extra letter spacing */
+
+.para-style-3 {
+    font-family: 'Courier New', Courier, monospace;
+    color: #b8860b;
+    letter-spacing: 0.5px;
+}
