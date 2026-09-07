@@ -1,21 +1,64 @@
-/* Paragraph style 1: elegant serif font, warm burgandy color */
+/* Color Palette : all colors used used on this page is going to be pulled from this stylesheet
+
+    Background:      #c0a598 (light espresso brown, page backdrop)
+    Primary text:    #2b1d14  (dark brown, main readable text)
+    Accent 1:        #44121c  (burgundy, headers & para-style-1)
+    Accent 2:        #273123  (dark forest green, para-style-2)
+    Accent 3:        #573920  (warm brown, para-style-3)
+*/
+
+/* Page-wide background and text color */
+body {
+    background-color: #c0a598;
+    color: #2b1d14;
+    text-align: center;
+}
+
+/* Center block-level elements */
+img {
+    display: block;
+    margin: 0 auto;
+}
+
+/* Lays the photo and logo out side by side, centered as a pair,
+   with a little breathing room between them */
+.about-images {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0px;
+    flex-wrap: wrap;
+}
+
+table {
+    margin: 0 auto;
+}
+
+/* Paragraph style 1: classic transitional serif (Times New Roman), burgundy,
+   slightly larger and bold for a strong, formal opening feel */
 .para-style-1 {
-    font-family: Georgia, 'Times New Roman', serif;
-    color: #b5179e;
+    font-family: 'Times New Roman', Times, serif;
+    color: #44121c;
+    font-size: 1.15em;
+    font-weight: bold;
 }
 
-/* Paragraph style 3: monospace font, gold color, extra letter spacing */
-
+/* Paragraph style 2: humanist serif (Georgia), dark green, italic,
+   normal weight and size for a softer, reflective tone */
 .para-style-2 {
-    font-family: Verdana, Geneva, sans-serif;
-    color: #1b998b;
+    font-family: Georgia, 'Times New Roman', serif;
+    color: #273123;
     font-style: italic;
+    font-size: 1em;
+    font-weight: normal;
 }
 
-/* Paragraph style 3: monospace font, gold color, extra letter spacing */
-
+/* Paragraph style 3: old-style serif (Garamond), warm brown, wider letter
+   spacing and a smaller size for a quieter, closing "liner notes" feel */
 .para-style-3 {
-    font-family: 'Courier New', Courier, monospace;
-    color: #b8860b;
-    letter-spacing: 0.5px;
+    font-family: Garamond, Baskerville, serif;
+    color: #573920;
+    letter-spacing: 1px;
+    font-size: 0.95em;
+    font-weight: normal;
 }
