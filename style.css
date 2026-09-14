@@ -7,11 +7,20 @@
     Accent 3:        #573920  (warm brown, para-style-3)
 */
 
-/* Page-wide background and text color */
+/* Page-wide background and text color. margin: 0 removes the browser's
+   default spacing around the page so the layout can start flush at the edge */
 body {
     background-color: #c0a598;
     color: #2b1d14;
     text-align: center;
+    margin: 0;
+}
+
+/* Removes the browser's default top margin on headings, so the header
+   sits flush against the very top of the page with no gap above it */
+header h1 {
+    margin-top: 0;
+    padding-top: 20px;
 }
 
 /* Center block-level elements */
@@ -26,12 +35,55 @@ img {
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 0px;
+    gap: 10px;
     flex-wrap: wrap;
+}
+
+/* Override the general img margin:auto rule above, since inside a flex
+   container "margin: auto" eats up extra space and pushes images apart
+   instead of centering them */
+.about-images img {
+    margin: 0;
 }
 
 table {
     margin: 0 auto;
+}
+
+/* PAGE LAYOUT (CSS Grid)
+   Splits the about page into two columns: a fixed-width sidebar
+   for navigation, and a flexible main content area that takes up
+   the rest of the space. Built for the LinkedIn Learning CSS
+   layout assignment.*/
+.page-layout {
+    display: grid;
+    grid-template-columns: 220px 1fr;
+    grid-template-rows: auto 1fr;
+    grid-template-areas:
+        "sidebar header"
+        "sidebar content";
+    min-height: 100vh;
+    text-align: left;
+}
+
+.sidebar-nav {
+    grid-area: sidebar;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 20px;
+    background-color: #9e8a76;
+}
+
+header {
+    grid-area: header;
+    text-align: center;
+    padding-top: 20px;
+}
+
+.content-area {
+    grid-area: content;
+    padding: 20px 40px;
 }
 
 /* Paragraph style 1: classic transitional serif (Times New Roman), burgundy,
