@@ -9,6 +9,9 @@
           <link rel="stylesheet" href="style.css">
     </head>
     <body>
+
+       <!-- Theme toggle button: script.js listens for clicks on this to switch light/dark mode-->
+         <button id="theme_toggler" class="theme-toggle">Switch to Dark Mode</button>
         <!-- All visible page content -->
 
         <!-- Header section: main title and tagline shown at the top -->
@@ -89,6 +92,8 @@
                 <td>Novacane</td>
             </tr>
           </table>
-
+          <!-- Loads the theme-switching JavaScript. It sits at the bottom of the
+             body so the button above already exists when the script runs -->
+        <script src="script.js"></script>
     </body>
 </html>

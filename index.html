@@ -7,6 +7,8 @@
         <title>Alternative R&B | HOME</title>
     </head>
     <body>
+        <!-- Theme toggle button: script.js listens for clicks on this to switch light/dark mode-->
+         <button id="theme_toggler" class="theme-toggle">Switch to Dark Mode</button>
         <header>
             <!-- Semantic wrapping telling the browser "this is the top intro section" -->
             <h1>Alternative R&B</h1> <!-- the main heading -->
@@ -42,6 +44,10 @@
             The genre's influence has stretched far beyond its original scene, shaping 
             the sound of modern pop, hip-hop, and indie music over the past decade.
         </p>
+
+        <!-- Loads the theme-switching JavaScript. It sits at the bottom of the
+             body so the button above already exists when the script runs -->
+        <script src="script.js"></script>
 
     </body>
 </html>

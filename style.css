@@ -1,19 +1,87 @@
-/* Color Palette : all colors used used on this page is going to be pulled from this stylesheet
+/* ============================================================
+   COLOR PALETTE (two themes)
+   All colors on the site come from the CSS variables defined
+   below. The light theme lives in :root (the default). The dark
+   theme lives in .dark_mode and overrides the same variable names
+   whenever that class is added to <body> by script.js.
 
-    Background:      #c0a598 (light espresso brown, page backdrop)
-    Primary text:    #2b1d14  (dark brown, main readable text)
-    Accent 1:        #44121c  (burgundy, headers & para-style-1)
-    Accent 2:        #273123  (dark forest green, para-style-2)
-    Accent 3:        #573920  (warm brown, para-style-3)
+   LIGHT THEME (default)
+   Background:      #c0a598  (light espresso brown, page backdrop)
+   Primary text:    #2b1d14  (dark brown, main readable text)
+   Sidebar:         #9e8a76  (muted taupe, navigation panel)
+   Accent 1:        #44121c  (burgundy, links & para-style-1)
+   Accent 2:        #273123  (dark forest green, para-style-2)
+   Accent 3:        #573920  (warm brown, para-style-3)
+
+   DARK THEME (.dark_mode)
+   Background:      #3e2c23  (warm chocolate brown, page backdrop)
+   Primary text:    #ede3d3  (warm ivory, main readable text)
+   Sidebar:         #2b1d14  (deep brown, navigation panel)
+   Accent 1:        #e8b4bc  (soft rose, links)
+   Para 1:          #e59aa8  (light burgundy/rose)
+   Para 2:          #a9c4a0  (light sage green)
+   Para 3:          #d9a876  (light warm tan)
 */
 
-/* Page-wide background and text color. margin: 0 removes the browser's
-   default spacing around the page so the layout can start flush at the edge */
+/* LIGHT THEME VARIABLES: the default colors for every page */
+:root {
+    --body-bg: #c0a598;
+    --text-color: #2b1d14;
+    --sidebar-bg: #9e8a76;
+    --link-color: #44121c;
+    --para1-color: #44121c;
+    --para2-color: #273123;
+    --para3-color: #573920;
+    --button-bg: #44121c;
+    --button-text: #ede3d3;
+}
+
+/* DARK THEME VARIABLES: when <body> has the dark_mode class, these
+   values replace the light ones above. Nothing else in the CSS has
+   to change, because every rule below reads from the variables. */
+.dark_mode {
+    --body-bg: #3e2c23;
+    --text-color: #ede3d3;
+    --sidebar-bg: #2b1d14;
+    --link-color: #e8b4bc;
+    --para1-color: #e59aa8;
+    --para2-color: #a9c4a0;
+    --para3-color: #d9a876;
+    --button-bg: #ede3d3;
+    --button-text: #2b1d14;
+}
+
+/* Page-wide background and text color, pulled from the variables.
+   margin: 0 removes the browser's default spacing around the page so
+   the layout can start flush at the edge. The transition makes the
+   colors fade smoothly when the theme is switched. */
 body {
-    background-color: #c0a598;
-    color: #2b1d14;
+    background-color: var(--body-bg);
+    color: var(--text-color);
     text-align: center;
     margin: 0;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+/* Link color comes from the theme so links stay readable in both modes */
+a {
+    color: var(--link-color);
+}
+
+/* Theme toggle button: pinned to the top-right corner of every page.
+   Its colors also come from the variables, so it flips with the theme. */
+.theme-toggle {
+    position: fixed;
+    top: 15px;
+    right: 15px;
+    padding: 8px 14px;
+    background-color: var(--button-bg);
+    color: var(--button-text);
+    border: none;
+    border-radius: 4px;
+    font-family: Georgia, 'Times New Roman', serif;
+    cursor: pointer;
+    z-index: 10;
 }
 
 /* Removes the browser's default top margin on headings, so the header
@@ -66,13 +134,14 @@ table {
     text-align: left;
 }
 
+/* Sidebar navigation panel: its background color comes from the theme */
 .sidebar-nav {
     grid-area: sidebar;
     display: flex;
     flex-direction: column;
     gap: 10px;
     padding: 20px;
-    background-color: #9e8a76;
+    background-color: var(--sidebar-bg);
 }
 
 header {
@@ -86,30 +155,33 @@ header {
     padding: 20px 40px;
 }
 
-/* Paragraph style 1: classic transitional serif (Times New Roman), burgundy,
-   slightly larger and bold for a strong, formal opening feel */
+/* Paragraph style 1: classic transitional serif (Times New Roman),
+   slightly larger and bold for a strong, formal opening feel.
+   Color comes from --para1-color (burgundy in light, rose in dark). */
 .para-style-1 {
     font-family: 'Times New Roman', Times, serif;
-    color: #44121c;
+    color: var(--para1-color);
     font-size: 1.15em;
     font-weight: bold;
 }
 
-/* Paragraph style 2: humanist serif (Georgia), dark green, italic,
-   normal weight and size for a softer, reflective tone */
+/* Paragraph style 2: humanist serif (Georgia), italic, normal weight
+   and size for a softer, reflective tone.
+   Color comes from --para2-color (forest green in light, sage in dark). */
 .para-style-2 {
     font-family: Georgia, 'Times New Roman', serif;
-    color: #273123;
+    color: var(--para2-color);
     font-style: italic;
     font-size: 1em;
     font-weight: normal;
 }
 
-/* Paragraph style 3: old-style serif (Garamond), warm brown, wider letter
-   spacing and a smaller size for a quieter, closing "liner notes" feel */
+/* Paragraph style 3: old-style serif (Garamond), wider letter spacing
+   and a smaller size for a quieter, closing "liner notes" feel.
+   Color comes from --para3-color (warm brown in light, tan in dark). */
 .para-style-3 {
     font-family: Garamond, Baskerville, serif;
-    color: #573920;
+    color: var(--para3-color);
     letter-spacing: 1px;
     font-size: 0.95em;
     font-weight: normal;
